@@ -1,0 +1,6 @@
+framework module MCAlertTools {
+  umbrella header "MCAlertTools-umbrella.h"
+
+  export *
+  module * { export * }
+}
