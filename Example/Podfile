@@ -1,0 +1,6 @@
+use_frameworks!
+target 'MCAlertTools_Tests' do
+  pod 'MCAlertTools', :path => '../'
+  
+  
+end
