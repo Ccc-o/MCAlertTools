@@ -1,0 +1,16 @@
+PODS:
+  - MCAlertTools (0.1.0)
+
+DEPENDENCIES:
+  - MCAlertTools (~> 0.1.0)
+
+SPEC REPOS:
+  trunk:
+    - MCAlertTools
+
+SPEC CHECKSUMS:
+  MCAlertTools: 8e709f9ada6aeb516ed5ef80dd19cd08e977c19d
+
+PODFILE CHECKSUM: 1eca6724304bc619fa0bfd5e68a503033cf68f62
+
+COCOAPODS: 1.10.0

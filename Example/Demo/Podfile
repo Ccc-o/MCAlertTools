@@ -1,0 +1,8 @@
+
+
+target 'Demo' do
+
+
+pod 'MCAlertTools', '~> 0.1.0'
+
+end
