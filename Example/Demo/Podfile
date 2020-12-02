@@ -3,6 +3,6 @@
 target 'Demo' do
 
 
-pod 'MCAlertTools', '~> 0.1.0'
+pod 'MCAlertTools'
 
 end
