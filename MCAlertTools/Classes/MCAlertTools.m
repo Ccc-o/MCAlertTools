@@ -51,6 +51,7 @@
                      message:(NSString *)message
                  buttonTitle:(NSString *)btnTitle
                  buttonStyle:(MCAlertActionStyle)btnStyle{
+    viewController = [self checkViewController];
     if (iOS_Version >= 8.0) {
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
         //  添加按钮
@@ -121,6 +122,7 @@
 + (void)showBottomTipViewWith:(UIViewController *)viewController
                         title:(NSString *)title
                       message:(NSString *)message{
+    viewController = [self checkViewController];
     if (iOS_Version >= 8.0) {
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleActionSheet];
         [viewController presentViewController:alertController animated:YES completion:nil];
@@ -142,6 +144,7 @@
 destructiveButtonTitle:(NSString *)destructiveBtnTitle
     otherButtonTitles:(NSString *)otherButtonTitles, ...
 {
+    viewController = [self checkViewController];
     if (iOS_Version >= 8.0) {
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
         //  添加按钮
@@ -229,6 +232,7 @@ destructiveButtonTitle:(NSString *)destructiveBtnTitle
      destructiveButtonTitle:(NSString *)destructiveBtnTitle
           cancelButtonTitle:(NSString *)cancelBtnTitle
           otherButtonTitles:(NSString *)otherButtonTitles, ...NS_REQUIRES_NIL_TERMINATION{
+    viewController = [self checkViewController];
     if (iOS_Version >= 8.0){
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleActionSheet];
         //  添加按钮
@@ -314,6 +318,7 @@ destructiveButtonTitle:(NSString *)destructiveBtnTitle
          cancelButtonTitle:(NSString *)cancelBtnTitle
      otherButtonTitleArray:(NSArray *)otherBtnTitleArray
      otherButtonStyleArray:(NSArray *)otherBtnStyleArray{
+    viewController = [self checkViewController];
     if (iOS_Version >= 8.0) {
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
         //  添加按钮
@@ -369,6 +374,7 @@ destructiveButtonTitle:(NSString *)destructiveBtnTitle
           destructiveButtonTitle:(NSString *)destructiveBtnTitle
            otherButtonTitleArray:(NSArray *)otherBtnTitleArray
            otherButtonStyleArray:(NSArray *)otherBtnStyleArray{
+    viewController = [self checkViewController];
     if (iOS_Version >= 8.0) {
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleActionSheet];
         //  添加按钮
@@ -429,6 +435,14 @@ destructiveButtonTitle:(NSString *)destructiveBtnTitle
 }
 + (void)dismissActionSheet:(UIActionSheet *)actionSheet{
     [actionSheet dismissWithClickedButtonIndex:0 animated:YES];
+}
+
+/** 验证传入的 ViewController 是否存在, 若不存在, 默认为当前 window 的根控制器 */
++ (UIViewController *)checkViewController:(UIViewController *)viewController {
+    if (viewController) {
+        return viewController;
+    }
+    return [UIApplication sharedApplication].keyWindow.rootViewController;
 }
 
 @end
